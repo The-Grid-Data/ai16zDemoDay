@@ -23,7 +23,7 @@ query getFiltersOptions(
     name
     id
     definition
-    ProfileInfosAggregate(filter_input: $profileSectorsFilterInput) {
+    profileInfosAggregate(filter_input: $profileSectorsFilterInput) {
       _count
     }
   }
