@@ -23,9 +23,9 @@ query getFiltersOptions(
     name
     id
     definition
-    profileInfosAggregate(filter_input: $profileSectorsFilterInput) {
-      _count
-    }
+    # profileInfosAggregate(filter_input: $profileSectorsFilterInput) {
+    #   _count
+    # }
   }
   ###
   # Product filters
@@ -34,9 +34,9 @@ query getFiltersOptions(
     name
     id
     definition
-    productsAggregate(filter_input: $productTypesFilterInput) {
-      _count
-    }
+    # productsAggregate(filter_input: $productTypesFilterInput) {
+    #   _count
+    # }
   }
   productStatuses {
     definition
@@ -94,8 +94,8 @@ query getFiltersOptions(
     name
     id
     description
-    profileTagsAggregate(filter_input: $tagsFilterInput) {
-      _count
-    }
+    # profileTagsAggregate(filter_input: $tagsFilterInput) {
+    #   _count
+    # }
   }
 }

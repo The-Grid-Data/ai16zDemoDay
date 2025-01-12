@@ -5,7 +5,7 @@ import { Separator } from '@/components/ui/separator';
 type UrlType = keyof typeof urlTypeIconMap;
 
 export type SocialUrlType = {
-  url: string;
+  url?: string;
   type: string | UrlType;
 };
 
@@ -19,11 +19,13 @@ export const UrlTypeIconLinks = ({ urls }: UrlTypeIconLinksProps) => {
       {urls.map((urlList, index) => (
         <div key={index} className="flex items-center gap-2">
           <div className="flex items-center gap-2">
-            {urlList.map(url => (
-              <IconLink key={url.url} url={url.url} tooltipLabel={url.type}>
-                <UrlTypeIcon type={url.type as UrlType} />
-              </IconLink>
-            ))}
+            {urlList.map(url =>
+              url.url ? (
+                <IconLink key={url.url} url={url.url} tooltipLabel={url.type}>
+                  <UrlTypeIcon type={url.type as UrlType} />
+                </IconLink>
+              ) : null
+            )}
           </div>
           {index < urls.length - 1 && (
             <Separator
@@ -40,7 +42,7 @@ export const UrlTypeIconLinks = ({ urls }: UrlTypeIconLinksProps) => {
 // HELPER FUNCTIONS
 
 type URL = {
-  url: any;
+  url?: any;
   urlType?: {
     name: any;
   } | null;
@@ -60,7 +62,7 @@ export const extractUrls = (urls?: URL[] | null): SocialUrlType[] => {
 type SocialURL = {
   name: any;
   socialType?: { name: any } | null;
-  urls?: { url: any }[] | null;
+  urls?: { url?: any }[] | null;
 };
 
 export const extractSocialUrls = (
